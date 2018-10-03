@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using VIScv3.Models;
 
 namespace VIScv3
 {
@@ -15,6 +16,13 @@ namespace VIScv3
         public Form1()
         {
             InitializeComponent();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            /*
+            Brand brand = new Brand();
+            brand.Name = textBoxBrandName.Text;*/
         }
     }
 }

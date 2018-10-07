@@ -44,7 +44,7 @@ namespace VIScv3
                         {
                             while (reader.Read())
                             {
-                                CustomersList.Add(new Customer(reader.GetInt32(0), reader.GetString(1), (double)10.5, reader.GetInt32(2), reader.GetString(3)));
+                                CustomersList.Add(new Customer(reader.GetInt32(0), reader.GetString(1), (double)reader.GetDecimal(4), reader.GetInt32(2), reader.GetString(3)));
                             }
                         }
                     }

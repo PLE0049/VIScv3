@@ -28,15 +28,5 @@ namespace VIScv3.Model
             this.Adrress = adress;
         }
 
-        public Customer Save()
-        {
-            // TODO:  Save
-            return this;
-        }
-
-        public void IncreaseSallaryByPercentige()
-        {
-            // TODO:  Some Business Logic
-        }
     }
 }

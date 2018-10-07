@@ -27,9 +27,9 @@ namespace VIScv3
                 // Build connection string
                 SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
                 builder.DataSource = @"dbsys.cs.vsb.cz\STUDENT";   // update me
-                builder.UserID = "ple0049";              // update me
-                builder.Password = "BMAMiq5uVf";      // update me
-                builder.InitialCatalog = "ple0049";
+                builder.UserID = "Log0000";              // update me
+                builder.Password = "sdasdasdad";      // update me
+                builder.InitialCatalog = "Log0000";   // update me
 
                 // Connect to SQL
                 Console.Write("Connecting to SQL Server ... ");

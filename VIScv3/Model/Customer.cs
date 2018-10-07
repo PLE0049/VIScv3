@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -28,9 +29,42 @@ namespace VIScv3.Model
             this.Adrress = adress;
         }
 
+        public Customer(string name, double salary, int age, string adress)
+        {
+            this.Name = name;
+            this.Salary = salary;
+            this.Age = age;
+            this.Adrress = adress;
+        }
+
         public Customer Save()
         {
-            // TODO:  Save
+            SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
+            builder.DataSource = @"dbsys.cs.vsb.cz\STUDENT";   // update me
+            builder.UserID = "ple0049";              // update me
+            builder.Password = "BMAMiq5uVf";      // update me
+            builder.InitialCatalog = "ple0049";
+
+            using (SqlConnection connection = new SqlConnection(builder.ConnectionString))
+            {
+                connection.Open();
+                StringBuilder sb = new StringBuilder();
+                sb.Clear();
+                sb.Append("INSERT INTO CUSTOMERS (NAME,AGE,ADDRESS,SALARY)");
+                sb.Append("VALUES (@name, @age, @adress, @salary);");
+                sb.Append("SELECT CAST(scope_identity() AS int)");
+                string sql = sb.ToString();
+                using (SqlCommand command = new SqlCommand(sql, connection))
+                {
+                    command.Parameters.AddWithValue("@name", Name);
+                    command.Parameters.AddWithValue("@age", Age);
+                    command.Parameters.AddWithValue("@adress", Adrress);
+                    command.Parameters.AddWithValue("@salary", Salary);
+                    int modified = (int)command.ExecuteScalar();
+                    this.Id = modified;
+
+                }
+            }
             return this;
         }
 

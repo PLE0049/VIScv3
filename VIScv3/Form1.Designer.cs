@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.textBoxBrandName = new System.Windows.Forms.TextBox();
+            this.textBoxName = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
@@ -52,12 +52,12 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Name";
             // 
-            // textBoxBrandName
+            // textBoxName
             // 
-            this.textBoxBrandName.Location = new System.Drawing.Point(69, 58);
-            this.textBoxBrandName.Name = "textBoxBrandName";
-            this.textBoxBrandName.Size = new System.Drawing.Size(100, 20);
-            this.textBoxBrandName.TabIndex = 1;
+            this.textBoxName.Location = new System.Drawing.Point(69, 58);
+            this.textBoxName.Name = "textBoxName";
+            this.textBoxName.Size = new System.Drawing.Size(100, 20);
+            this.textBoxName.TabIndex = 1;
             // 
             // button1
             // 
@@ -146,7 +146,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.textBoxBrandName);
+            this.Controls.Add(this.textBoxName);
             this.Controls.Add(this.label1);
             this.Name = "Form1";
             this.Text = "Form1";
@@ -160,7 +160,7 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBoxBrandName;
+        private System.Windows.Forms.TextBox textBoxName;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.DataGridView dataGridView1;

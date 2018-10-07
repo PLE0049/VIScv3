@@ -16,10 +16,12 @@ namespace VIScv3
 {
     public partial class Form1 : Form
     {
+
+        List<Customer> CustomersList = new List<Customer>();
         public Form1()
         {
 
-            List<Customer> CustomersList = new List<Customer>();
+            
 
             // https://sqlchoice.azurewebsites.net/en-us/sql-server/developer-get-started/csharp/win/step/2.html 
             try
@@ -56,12 +58,20 @@ namespace VIScv3
             }
 
             InitializeComponent();
-            dataGridView1.DataSource = CustomersList;
+            BindingSource bSource = new BindingSource();
+            bSource.DataSource = CustomersList;
+            dataGridView1.DataSource = bSource;
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             //  TODO: Implement - Save new Customer
+            Customer NewCustomer = new Customer(textBoxName.Text, Double.Parse(textBox1.Text), Int32.Parse(textBox2.Text), textBox3.Text);
+            NewCustomer.Save();
+            CustomersList.Add(NewCustomer);
+            dataGridView1.DataSource = CustomersList;
+            dataGridView1.Update();
+            dataGridView1.Refresh();
         }
     }
 }

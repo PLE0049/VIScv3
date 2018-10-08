@@ -8,11 +8,11 @@ namespace VIScv3.Model
 {
     public class Worksheet
     {
-        int Id;
+        public int Id;
 
-        int Month;
+        public int Month;
 
-        int Hours;
+        public int Hours;
 
         Customer Customer;
     }

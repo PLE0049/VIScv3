@@ -4,6 +4,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using VIScv3.Models;
 
 namespace VIScv3.Model
 {
@@ -62,15 +63,26 @@ namespace VIScv3.Model
                     command.Parameters.AddWithValue("@salary", Salary);
                     int modified = (int)command.ExecuteScalar();
                     this.Id = modified;
-
                 }
             }
             return this;
         }
 
-        public void IncreaseSallaryByPercentige()
+        public void IncreaseSallaryByPercentige( int percentige)
         {
-            // TODO:  Some Business Logic
+            Salary = Salary * (1 + ((double)percentige/100));
+        }
+
+        public Payment CalculatePayment(int month)
+        {
+            /// get worksheet for given month
+            Worksheet worksheet = new Worksheet();
+
+            Payment p = new Payment();
+            p.Amount = worksheet.Hours < 150 ? (worksheet.Hours * Salary) * 0.75 : (worksheet.Hours * Salary) * 0.85;
+            p.Date = DateTime.UtcNow;
+            // SAVE IT
+            return p;
         }
     }
 }

@@ -67,7 +67,7 @@ namespace VIScv3
         {
             //  TODO: Implement - Save new Customer
             Customer NewCustomer = new Customer(textBoxName.Text, Double.Parse(textBox1.Text), Int32.Parse(textBox2.Text), textBox3.Text);
-            NewCustomer.Save();
+            NewCustomer.Insert();
             CustomersList.Add(NewCustomer);
             dataGridView1.DataSource = CustomersList;
             dataGridView1.Update();

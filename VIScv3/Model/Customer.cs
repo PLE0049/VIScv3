@@ -37,8 +37,29 @@ namespace VIScv3.Model
             this.Age = age;
             this.Adrress = adress;
         }
+        public void IncreaseSallaryByPercentige()
+        {
+            // TODO:  Some Business Logic
+        }
 
-        public Customer Save()
+        // ACTIVE RECORDS */ 
+
+        public Customer Get(int id)
+        {
+            return null;
+        }
+
+        public bool Delete()
+        {
+            return true;
+        }
+
+        public Customer Update()
+        {
+            return null;
+        }
+
+        public Customer Insert()
         {
             SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
             builder.DataSource = @"dbsys.cs.vsb.cz\STUDENT";   // update me

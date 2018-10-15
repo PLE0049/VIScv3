@@ -21,8 +21,6 @@ namespace VIScv3
         public Form1()
         {
 
-            
-
             // https://sqlchoice.azurewebsites.net/en-us/sql-server/developer-get-started/csharp/win/step/2.html 
             try
             {

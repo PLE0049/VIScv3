@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ClassLibrary2;
+using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
@@ -19,7 +20,6 @@ namespace VIScv3.Model
         public int Age { get; set; }
 
         public string Adrress { get; set; }
-
 
         public Customer( int id, string name, double salary, int age, string adress)
         {
@@ -61,12 +61,7 @@ namespace VIScv3.Model
 
         public Customer Insert()
         {
-            SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
-            builder.DataSource = @"dbsys.cs.vsb.cz\STUDENT";   // update me
-            builder.UserID = "ple0049";              // update me
-            builder.Password = "BMAMiq5uVf";      // update me
-            builder.InitialCatalog = "ple0049";
-
+            SqlConnectionStringBuilder builder = DBConnector.GetBuilder();
             using (SqlConnection connection = new SqlConnection(builder.ConnectionString))
             {
                 connection.Open();

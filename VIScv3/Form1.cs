@@ -20,40 +20,7 @@ namespace VIScv3
         List<Customer> CustomersList = new List<Customer>();
         public Form1()
         {
-
-            // https://sqlchoice.azurewebsites.net/en-us/sql-server/developer-get-started/csharp/win/step/2.html 
-            try
-            {
-                // Build connection string
-                SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
-                builder.DataSource = @"dbsys.cs.vsb.cz\STUDENT";   // update me
-                builder.UserID = "ple0049";              // update me
-                builder.Password = "BMAMiq5uVf";      // update me
-                builder.InitialCatalog = "ple0049";
-
-                // Connect to SQL
-                Console.Write("Connecting to SQL Server ... ");
-                using (SqlConnection connection = new SqlConnection(builder.ConnectionString))
-                {
-                    connection.Open();
-                    Console.WriteLine("Reading data from table, press any key to continue...");
-                    string sql = "SELECT * FROM CUSTOMERS;";
-                    using (SqlCommand command = new SqlCommand(sql, connection))
-                    {
-                        using (SqlDataReader reader = command.ExecuteReader())
-                        {
-                            while (reader.Read())
-                            {
-                                CustomersList.Add(new Customer(reader.GetInt32(0), reader.GetString(1), (double)reader.GetDecimal(4), reader.GetInt32(2), reader.GetString(3)));
-                            }
-                        }
-                    }
-                }
-            }
-            catch (SqlException ex)
-            {
-                Console.WriteLine(ex.ToString());
-            }
+            /* Use Customer Data Gateway to return all records*/
 
             InitializeComponent();
             BindingSource bSource = new BindingSource();
@@ -70,6 +37,18 @@ namespace VIScv3
             dataGridView1.DataSource = CustomersList;
             dataGridView1.Update();
             dataGridView1.Refresh();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Customer Pepa = new Customer();
+            int CustomerId;
+            Int32.TryParse(textBoxCustomerId.Text, out CustomerId);
+            Pepa.Get(CustomerId);
+
+            lblCustomerToString.Text = Pepa.Print();
+
+
         }
     }
 }

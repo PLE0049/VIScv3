@@ -5,12 +5,16 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using VIScv3.Data;
 using VIScv3.Models;
 
 namespace VIScv3.Model
 {
     public class Customer
     {
+
+        private CustomerDataGateway Gateway;
+
         public int Id { get; set; }
 
         public string Name { get; set; }
@@ -20,6 +24,11 @@ namespace VIScv3.Model
         public int Age { get; set; }
 
         public string Adrress { get; set; }
+
+        public Customer()
+        {
+            Gateway = new CustomerDataGateway();
+        }
 
         public Customer( int id, string name, double salary, int age, string adress)
         {
@@ -46,7 +55,15 @@ namespace VIScv3.Model
 
         public Customer Get(int id)
         {
-            return null;
+            Dictionary<string,object> result = Gateway.FindById(id);
+
+            this.Id = (int)result["Id"];
+            this.Name = (string)result["Name"];
+            this.Salary = (double)result["Salary"];
+            this.Adrress = (string)result["Adrress"];
+            this.Age = (int)result["Age"];
+
+            return this;
         }
 
         public bool Delete()
@@ -87,6 +104,11 @@ namespace VIScv3.Model
         public void IncreaseSallaryByPercentige( int percentige)
         {
             Salary = Salary * (1 + ((double)percentige/100));
+        }
+
+        public string Print()
+        {
+            return "Name:" + this.Name + " Age:" + this.Age;
         }
 
         public Payment CalculatePayment(int month)

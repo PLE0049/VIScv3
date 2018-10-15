@@ -43,7 +43,7 @@
     <Compile Include="Data\CustomerRecord.cs" />
     <Compile Include="DBConnector.cs" />
     <Compile Include="CustomerRowGateway.cs" />
-    <Compile Include="CustomerTableGateway.cs" />
+    <Compile Include="CustomerDataGateway.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

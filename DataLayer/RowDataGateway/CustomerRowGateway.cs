@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace VIScv3.Data
+namespace DataLayer.RowDataGateway
 {
     public class CustomerRowGateway
     {

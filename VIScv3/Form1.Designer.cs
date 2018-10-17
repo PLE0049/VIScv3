@@ -40,16 +40,20 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.lblCustomerToString = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
+            this.textBoxCustomerId = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.textBoxCustomerId = new System.Windows.Forms.TextBox();
-            this.button2 = new System.Windows.Forms.Button();
-            this.label7 = new System.Windows.Forms.Label();
-            this.lblCustomerToString = new System.Windows.Forms.Label();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
+            this.lblAvgSalary = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel2.SuspendLayout();
+            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -80,6 +84,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.button3);
             this.panel1.Controls.Add(this.textBox3);
             this.panel1.Controls.Add(this.dataGridView1);
             this.panel1.Controls.Add(this.textBox2);
@@ -162,6 +167,40 @@
             this.panel2.Size = new System.Drawing.Size(384, 258);
             this.panel2.TabIndex = 5;
             // 
+            // lblCustomerToString
+            // 
+            this.lblCustomerToString.AutoSize = true;
+            this.lblCustomerToString.Location = new System.Drawing.Point(55, 94);
+            this.lblCustomerToString.Name = "lblCustomerToString";
+            this.lblCustomerToString.Size = new System.Drawing.Size(0, 13);
+            this.lblCustomerToString.TabIndex = 3;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(36, 32);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(16, 13);
+            this.label7.TabIndex = 2;
+            this.label7.Text = "Id";
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(164, 26);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 1;
+            this.button2.Text = "button2";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // textBoxCustomerId
+            // 
+            this.textBoxCustomerId.Location = new System.Drawing.Point(58, 29);
+            this.textBoxCustomerId.Name = "textBoxCustomerId";
+            this.textBoxCustomerId.Size = new System.Drawing.Size(100, 20);
+            this.textBoxCustomerId.TabIndex = 0;
+            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -182,50 +221,46 @@
             // 
             // panel3
             // 
+            this.panel3.Controls.Add(this.lblAvgSalary);
+            this.panel3.Controls.Add(this.button4);
             this.panel3.Location = new System.Drawing.Point(402, 399);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(395, 258);
             this.panel3.TabIndex = 8;
             // 
-            // textBoxCustomerId
+            // button3
             // 
-            this.textBoxCustomerId.Location = new System.Drawing.Point(58, 29);
-            this.textBoxCustomerId.Name = "textBoxCustomerId";
-            this.textBoxCustomerId.Size = new System.Drawing.Size(100, 20);
-            this.textBoxCustomerId.TabIndex = 0;
+            this.button3.Location = new System.Drawing.Point(645, 21);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(75, 23);
+            this.button3.TabIndex = 11;
+            this.button3.Text = "button3";
+            this.button3.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // button4
             // 
-            this.button2.Location = new System.Drawing.Point(164, 26);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "button2";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.button4.Location = new System.Drawing.Point(17, 22);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(142, 23);
+            this.button4.TabIndex = 0;
+            this.button4.Text = "Compute Avg salary";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
-            // label7
+            // lblAvgSalary
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(36, 32);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(16, 13);
-            this.label7.TabIndex = 2;
-            this.label7.Text = "Id";
-            // 
-            // lblCustomerToString
-            // 
-            this.lblCustomerToString.AutoSize = true;
-            this.lblCustomerToString.Location = new System.Drawing.Point(55, 94);
-            this.lblCustomerToString.Name = "lblCustomerToString";
-            this.lblCustomerToString.Size = new System.Drawing.Size(0, 13);
-            this.lblCustomerToString.TabIndex = 3;
+            this.lblAvgSalary.AutoSize = true;
+            this.lblAvgSalary.Location = new System.Drawing.Point(176, 27);
+            this.lblAvgSalary.Name = "lblAvgSalary";
+            this.lblAvgSalary.Size = new System.Drawing.Size(35, 13);
+            this.lblAvgSalary.TabIndex = 1;
+            this.lblAvgSalary.Text = "label8";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(819, 669);
+            this.ClientSize = new System.Drawing.Size(815, 669);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
@@ -238,6 +273,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -264,6 +301,9 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.TextBox textBoxCustomerId;
         private System.Windows.Forms.Label lblCustomerToString;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Label lblAvgSalary;
     }
 }
 

@@ -10,7 +10,7 @@ using VIScv3.Models;
 
 namespace VIScv3.Model
 {
-    public class Customer
+    public class CustomerActireRecord
     {
 
         private CustomerDataGateway Gateway;
@@ -25,12 +25,13 @@ namespace VIScv3.Model
 
         public string Adrress { get; set; }
 
-        public Customer()
+
+        public CustomerActireRecord()
         {
             Gateway = new CustomerDataGateway();
         }
 
-        public Customer( int id, string name, double salary, int age, string adress)
+        public CustomerActireRecord( int id, string name, double salary, int age, string adress)
         {
             this.Id = id;
             this.Name = name;
@@ -39,7 +40,7 @@ namespace VIScv3.Model
             this.Adrress = adress;
         }
 
-        public Customer(string name, double salary, int age, string adress)
+        public CustomerActireRecord(string name, double salary, int age, string adress)
         {
             this.Name = name;
             this.Salary = salary;
@@ -51,19 +52,41 @@ namespace VIScv3.Model
             // TODO:  Some Business Logic
         }
 
-        // ACTIVE RECORDS */ 
-
-        public Customer Get(int id)
+        // ACTIVE RECORDS */
+        public static CustomerActireRecord Get(int id)
         {
-            Dictionary<string,object> result = Gateway.FindById(id);
+            
+            string sql = "SELECT * FROM CUSTOMERS WHERE ID = @id;";
+            CustomerActireRecord NewCustomer = null;
+            using (SqlConnection connection = new SqlConnection(DBConnector.GetBuilder().ConnectionString))
+            {
+                connection.Open();
+                using (SqlCommand command = new SqlCommand(sql, connection))
+                {
+                    command.Parameters.AddWithValue("@id", id);
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            NewCustomer = MapResultsetToObject(reader);
+                        }
+                    }
+                }
+            }
 
-            this.Id = (int)result["Id"];
-            this.Name = (string)result["Name"];
-            this.Salary = (double)result["Salary"];
-            this.Adrress = (string)result["Adrress"];
-            this.Age = (int)result["Age"];
+            return NewCustomer;
+        }
 
-            return this;
+        public static CustomerActireRecord MapResultsetToObject(SqlDataReader reader)
+        {
+            CustomerActireRecord NewCustomer = new CustomerActireRecord();
+            NewCustomer.Id = reader.GetInt32(0);
+            NewCustomer.Name = reader.GetString(1);
+            NewCustomer.Salary = (double)reader.GetDecimal(4);
+            NewCustomer.Age = reader.GetInt32(2);
+            NewCustomer.Adrress = reader.GetString(3);
+
+            return NewCustomer;
         }
 
         public bool Delete()
@@ -71,12 +94,12 @@ namespace VIScv3.Model
             return true;
         }
 
-        public Customer Update()
+        public CustomerActireRecord Update()
         {
             return null;
         }
 
-        public Customer Insert()
+        public CustomerActireRecord Insert()
         {
             SqlConnectionStringBuilder builder = DBConnector.GetBuilder();
             using (SqlConnection connection = new SqlConnection(builder.ConnectionString))

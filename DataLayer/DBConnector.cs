@@ -5,13 +5,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace VIScv3.Data
+namespace DataLayer
 {
     public static class DBConnector
     {
-
-        // handle db connection
-
         public static SqlConnectionStringBuilder GetBuilder()
         {
             SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
@@ -19,7 +16,6 @@ namespace VIScv3.Data
             builder.UserID = "ple0049";              // update me
             builder.Password = "BMAMiq5uVf";      // update me
             builder.InitialCatalog = "ple0049";
-
             return builder;
         }
     }

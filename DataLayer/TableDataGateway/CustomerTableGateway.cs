@@ -1,46 +1,36 @@
-﻿using ClassLibrary2;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Text;
 
-namespace VIScv3.Data
+namespace DataLayer.TableDataGateway
 {
-    public class CustomerDataGateway
+    public class CustomerTableGateway
     {
 
-        public List<Dictionary<string,object>> GetAll()
+        public static DataTable Find()
         {
+            var dataTable = new DataTable();
             List<Dictionary<string, object>> Customers = new List<Dictionary<string, object>>(); 
             string sql = "SELECT * FROM CUSTOMERS;";
             SqlConnectionStringBuilder builder = DBConnector.GetBuilder();
             using (SqlConnection connection = new SqlConnection(builder.ConnectionString))
             {
+                connection.Open();
                 using (SqlCommand command = new SqlCommand(sql, connection))
                 {
                     using (SqlDataReader reader = command.ExecuteReader())
                     {
-                        while (reader.Read())
-                        {
-                            var CustomerOne = new Dictionary<string, object>();
-
-                            CustomerOne["Id"] = reader.GetInt32(0);
-                            CustomerOne["Name"] = reader.GetString(1);
-                            CustomerOne["Salary"] = (double)reader.GetDecimal(4);
-                            CustomerOne["Age"] = reader.GetInt32(2);
-                            CustomerOne["Adrress"] = reader.GetString(3);
-
-                            Customers.Add(CustomerOne);
-                        }
+                        dataTable.Load(reader);
                     }
                 }
             }
-
-            return Customers;
+            return dataTable;
         }
 
-        public Dictionary<string, object> FindById(int id)
+        public static DataTable FindById(int id)
         {
-            Dictionary<string, object> Customer = null;
+            var dataTable = new DataTable();
             string sql = "SELECT * FROM CUSTOMERS WHERE ID = @id;";
 
             using (SqlConnection connection = new SqlConnection(DBConnector.GetBuilder().ConnectionString))
@@ -51,23 +41,14 @@ namespace VIScv3.Data
                     command.Parameters.AddWithValue("@id", id);
                     using (SqlDataReader reader = command.ExecuteReader())
                     {
-                        while (reader.Read())
-                        {
-                            Customer = new Dictionary<string, object>();
-                            Customer["Id"] = reader.GetInt32(0);
-                            Customer["Name"] = reader.GetString(1);
-                            Customer["Salary"] = (double)reader.GetDecimal(4);
-                            Customer["Age"] = reader.GetInt32(2);
-                            Customer["Adrress"] = reader.GetString(3);
-                        }
+                        dataTable.Load(reader);
                     }
                 }
             }
-
-            return Customer;
+            return dataTable;
         }
 
-        public CustomerRecord FindName( string name)
+        public static object[] FindByName( string name)
         {
             SqlConnectionStringBuilder builder = DBConnector.GetBuilder();
             using (SqlConnection connection = new SqlConnection(builder.ConnectionString))

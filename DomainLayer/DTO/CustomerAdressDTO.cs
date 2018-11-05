@@ -15,9 +15,13 @@ namespace DomainLayer.DTO
 
         public string FullAddress { get; set; }
 
+        public string Date { get; set; }
+
         CustomerAdressDTO( Customer customer, Address address)
         {
             /// 
+
+            this.FullAddress = address.Street + "," + address.Country;
         }
     }
 }

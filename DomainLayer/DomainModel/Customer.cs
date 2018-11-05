@@ -19,10 +19,32 @@ namespace DomainLayer.DomainModel
 
         public string Adrress { get; set; }
 
+        private Lazy<List<Address>> _addresses;
+
+        public List<Address> Addresses
+        {
+            get
+            {
+                return _addresses.Value;
+            }
+        }
 
         public Customer()
         {
+            _addresses = new Lazy<List<Address>>(() => GetMyAddresses());
+        }
 
+        private List<Address> GetMyAddresses()
+        {
+            // example of fetching data
+            // can be fetched from DB, file ...
+
+            List<Address> a = new List<Address>();
+
+            a.Add(new Address { Country = "USA", Street = "Main" });
+            a.Add(new Address { Country = "USA", Street = "Main2" });
+
+            return a;
         }
 
         public Customer( int id, string name, double salary, int age, string adress)

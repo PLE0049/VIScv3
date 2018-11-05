@@ -41,12 +41,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DBConnector.cs" />
+    <Compile Include="DomainModel\Address.cs" />
     <Compile Include="DomainModel\Customer.cs" />
     <Compile Include="DomanModelActiveRecord\CustomerActiveRecord.cs" />
     <Compile Include="DomainModel\Payment.cs" />
     <Compile Include="DomainModel\Worksheet.cs" />
+    <Compile Include="DTO\CustomerAdressDTO.cs" />
+    <Compile Include="Entity.cs" />
+    <Compile Include="IdentityMap.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TableModule\CustomerTableModule.cs" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

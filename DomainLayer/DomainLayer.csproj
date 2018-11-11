@@ -42,6 +42,8 @@
   <ItemGroup>
     <Compile Include="CustomerIdentityMap.cs" />
     <Compile Include="DBConnector.cs" />
+    <Compile Include="DomainModelUnitOfWork\Customer.cs" />
+    <Compile Include="DomainModelUnitOfWork\IUnitOfWorkCompatible.cs" />
     <Compile Include="DomainModel\Address.cs" />
     <Compile Include="DomainModel\Customer.cs" />
     <Compile Include="DomanModelActiveRecord\CustomerActiveRecord.cs" />
@@ -53,6 +55,7 @@
     <Compile Include="IMap.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TableModule\CustomerTableModule.cs" />
+    <Compile Include="DomainModelUnitOfWork\UnitOfWork.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

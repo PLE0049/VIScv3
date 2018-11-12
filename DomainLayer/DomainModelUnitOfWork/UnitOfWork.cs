@@ -28,24 +28,30 @@ namespace DomainLayer.DomainModelUnitOfWork
             return threadLocal.Value;
         }
 
-        public void registerNew()
+        public void registerNew(Customer customer)
         {
-
+            newObjects.Add(customer);
         }
 
-        public void registerDirty()
+        public void registerDirty(Customer customer)
         {
-
+            dirtyObjects.Add(customer);
         }
 
-        public void registerRemove()
+        public void registerRemove(Customer customer)
         {
-
+            removedObjects.Add(customer);
         }
 
         public void Commit()
         {
             // insert new
+            foreach(Customer customer in newObjects)
+            {
+                // implement insert statement 
+            }
+
+
             // update dirty
             // delete removed
         }

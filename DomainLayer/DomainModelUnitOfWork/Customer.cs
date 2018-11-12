@@ -22,7 +22,16 @@ namespace DomainLayer.DomainModelUnitOfWork
 
         public Customer()
         {
-            
+
+            this.Id = -1;
+            this.Name = "Pepa";
+            MarkNew();
+        }
+
+        public void UpdateName( string Name)
+        {
+            this.Name = Name;
+            MarkDirty();
         }
 
         public void IncreaseSallaryByPercentige( int percentige)
@@ -37,12 +46,12 @@ namespace DomainLayer.DomainModelUnitOfWork
 
         public void MarkNew()
         {
-            throw new NotImplementedException();
+            UnitOfWork.getCurrent().registerNew(this);
         }
 
         public void MarkDirty()
         {
-            throw new NotImplementedException();
+            UnitOfWork.getCurrent().registerDirty(this);
         }
 
         public void MarkRemoved()

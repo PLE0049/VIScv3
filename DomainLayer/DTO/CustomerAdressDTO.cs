@@ -17,10 +17,9 @@ namespace DomainLayer.DTO
 
         public string Date { get; set; }
 
-        CustomerAdressDTO( Customer customer, Address address)
+        CustomerAdressDTO( Customer customer, Address address, List<Worksheet> worksheets)
         {
             /// 
-
             this.FullAddress = address.Street + "," + address.Country;
         }
     }

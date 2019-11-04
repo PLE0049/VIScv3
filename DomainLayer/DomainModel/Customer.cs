@@ -37,7 +37,7 @@ namespace DomainLayer.DomainModel
         private List<Address> GetMyAddresses()
         {
             // example of fetching data
-            // can be fetched from DB, file ...
+            // can be fetched from DB, file , etc...
 
             List<Address> a = new List<Address>();
 
@@ -45,6 +45,11 @@ namespace DomainLayer.DomainModel
             a.Add(new Address { Country = "USA", Street = "Main2" });
 
             return a;
+        }
+
+        public Customer(int id, string name, bool isPremiumMember)
+        {
+
         }
 
         public Customer( int id, string name, double salary, int age, string adress)
@@ -75,6 +80,12 @@ namespace DomainLayer.DomainModel
         public string Print()
         {
             return "Name:" + this.Name + " Age:" + this.Age;
+        }
+
+        public static Customer GetByID(int id)
+        {
+            // TODO 
+            return new Customer();
         }
 
         public Payment CalculatePayment(int month)

@@ -49,9 +49,8 @@ namespace VIScv3
             Int32.TryParse(textBoxCustomerId.Text, out CustomerId);
             Pepa.Get(CustomerId);
 
-            lblCustomerToString.Text = Pepa.Print();*/
-
-
+            lblCustomerToString.Text = Pepa.Print();    
+             */
         }
 
         private void button4_Click(object sender, EventArgs e)

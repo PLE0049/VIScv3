@@ -48,12 +48,18 @@ namespace DomainLayer.DomainModelUnitOfWork
             // insert new
             foreach(Customer customer in newObjects)
             {
-                // implement insert statement 
+                // insert customer to DB
             }
 
+            foreach (Customer customer in dirtyObjects)
+            {
+                // update customer to DB
+            }
 
-            // update dirty
-            // delete removed
+            foreach (Customer customer in removedObjects)
+            {
+                // delete customer to DB
+            }
         }
 
         public void Rollback()

@@ -46,6 +46,7 @@
     <Compile Include="DomainModelUnitOfWork\IUnitOfWorkCompatible.cs" />
     <Compile Include="DomainModel\Address.cs" />
     <Compile Include="DomainModel\Customer.cs" />
+    <Compile Include="DomainModel\IAddressTableGateway.cs" />
     <Compile Include="DomanModelActiveRecord\CustomerActiveRecord.cs" />
     <Compile Include="DomainModel\Payment.cs" />
     <Compile Include="DomainModel\Worksheet.cs" />

@@ -10,6 +10,7 @@ namespace DomainLayer.TableModule
     public class CustomerTableModule
     {
         DataTable TableData;
+
         public CustomerTableModule( DataTable table )
         {
             TableData = table;

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace DomainLayer.DomainModelUnitOfWork
@@ -34,6 +35,11 @@ namespace DomainLayer.DomainModelUnitOfWork
             MarkDirty();
         }
 
+        public Customer(int id,string name, bool isPremiumMember)
+        {
+
+        }
+
         public void IncreaseSallaryByPercentige( int percentige)
         {
             Salary = Salary * (1 + ((double)percentige/100));
@@ -56,7 +62,7 @@ namespace DomainLayer.DomainModelUnitOfWork
 
         public void MarkRemoved()
         {
-            throw new NotImplementedException();
+            UnitOfWork.getCurrent().registerRemove(this);
         }
     }
 }

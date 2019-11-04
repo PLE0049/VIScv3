@@ -7,7 +7,6 @@ namespace DataLayer.TableDataGateway
 {
     public class CustomerTableGateway
     {
-
         public static DataTable Find()
         {
             var dataTable = new DataTable();
@@ -21,7 +20,7 @@ namespace DataLayer.TableDataGateway
                 {
                     using (SqlDataReader reader = command.ExecuteReader())
                     {
-                        dataTable.Load(reader);
+                        dataTable.Load(reader);                     
                     }
                 }
             }

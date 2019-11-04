@@ -3,11 +3,11 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Text;
 
-namespace DataLayer.TableDataGateway
+namespace DataLayer3.TableDataGateway
 {
     public class CustomerTableGateway
     {
-        public static DataTable Find()
+        public DataTable Find()
         {
             var dataTable = new DataTable();
             List<Dictionary<string, object>> Customers = new List<Dictionary<string, object>>(); 
@@ -27,7 +27,7 @@ namespace DataLayer.TableDataGateway
             return dataTable;
         }
 
-        public static DataTable FindById(int id)
+        public DataTable FindById(int id)
         {
             var dataTable = new DataTable();
             string sql = "SELECT * FROM CUSTOMERS WHERE ID = @id;";
@@ -47,7 +47,7 @@ namespace DataLayer.TableDataGateway
             return dataTable;
         }
 
-        public static object[] FindByName( string name)
+        public object[] FindByName( string name)
         {
             SqlConnectionStringBuilder builder = DBConnector.GetBuilder();
             using (SqlConnection connection = new SqlConnection(builder.ConnectionString))

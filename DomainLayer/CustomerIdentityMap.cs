@@ -27,6 +27,5 @@ namespace DomainLayer
         {
             map.Add(customer.Id,customer);
         }
-
     }
 }

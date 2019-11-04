@@ -42,9 +42,8 @@
   <ItemGroup>
     <Compile Include="DataMapper\DataMapper.cs" />
     <Compile Include="DBConnector.cs" />
+    <Compile Include="Entities\CustomerEntity.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RowDataGateway\CustomerRowGateway.cs" />
-    <Compile Include="TableDataGateway\CustomerTableGateway.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DomainLayer\DomainLayer.csproj">

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DataLayer.RowDataGateway
+namespace DataLayer3.RowDataGateway
 {
     public class CustomerRowGateway
     {

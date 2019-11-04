@@ -1,17 +1,7 @@
-﻿using DataLayer.TableDataGateway;
-using DomainLayer.DomainModel;
-using DomainLayer.DomanModelActiveRecord;
+﻿using DomainLayer.DomanModelActiveRecord;
 using DomainLayer.TableModule;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Data.SqlClient;
-using System.Drawing;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace VIScv3
@@ -32,7 +22,7 @@ namespace VIScv3
 
         private void button1_Click(object sender, EventArgs e)
         {
-            //  TODO: Implement - Save new Customer
+            // Save using active records
             CustomerActireRecord NewCustomer = new CustomerActireRecord(textBoxName.Text, Double.Parse(textBox1.Text), Int32.Parse(textBox2.Text), textBox3.Text);
             NewCustomer.Insert();
             CustomersList.Add(NewCustomer);
@@ -43,19 +33,14 @@ namespace VIScv3
 
         private void button2_Click(object sender, EventArgs e)
         {
-            /*
-            Customer Pepa = new Customer();
-            int CustomerId;
-            Int32.TryParse(textBoxCustomerId.Text, out CustomerId);
-            Pepa.Get(CustomerId);
-
-            lblCustomerToString.Text = Pepa.Print();    
-             */
+  
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-            CustomerTableModule CustomerModule = new CustomerTableModule( CustomerTableGateway.Find() );           
+            // This inicialization should be solved by IOC container
+            // In this case cannot move CustomerTableGateway to TableModule because of circular dependencies
+            CustomerTableModule CustomerModule = new CustomerTableModule();           
             lblAvgSalary.Text = CustomerModule.AverageSalary().ToString();
         }
     }

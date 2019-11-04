@@ -1,24 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using DataLayer3.TableDataGateway;
+using System;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DomainLayer.TableModule
 {
     public class CustomerTableModule
     {
-        DataTable TableData;
+        private DataTable TableData;
 
-        public CustomerTableModule( DataTable table )
+        private CustomerTableGateway _dataGateway;
+        public CustomerTableModule()
         {
-            TableData = table;
+            _dataGateway = new CustomerTableGateway();
         }
 
         /* Domain Logic Functions*/
         public double AverageSalary()
         {
+            TableData = _dataGateway.Find();
             double SalarySum = 0;
             
             foreach ( DataRow row in this.TableData.Rows)

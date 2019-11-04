@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace DomainLayer
 {
+    // Identity Field Patter
     public interface Entity
     {
         int Id { get; set; }

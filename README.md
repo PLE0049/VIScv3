@@ -11,6 +11,8 @@ We have created mix of all patters and that is not correct.
 
 ### This is also not a template for your project !!!
 
+I will be very greatfull for any PR that will lead to better or more complete implementation.
+
 ## Content
 This project contains partial implementation of some Design Patterns described in https://martinfowler.com/books/eaa.html 
 
